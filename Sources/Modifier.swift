@@ -21,6 +21,7 @@ open class Modifier: NSObject {
     open static let Internal = Modifier(rawString: "internal")
     open static let Fileprivate = Modifier(rawString: "fileprivate")
     open static let Private = Modifier(rawString: "private")
+    open static let PrivateSet = Modifier(rawString: "private(set)")
 
     open static let Static = Modifier(rawString: "static")
     open static let Final = Modifier(rawString: "final")
