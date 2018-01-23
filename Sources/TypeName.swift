@@ -203,9 +203,9 @@ extension TypeName: Literal {
             let function = "(\(functionParams)) -> \(innerTypes.last?.literalValue() ?? "Void")"
 
             if optional {
-                return "(\(function))?"
+                return attrStr + "(\(function))?"
             } else {
-                return function
+                return attrStr + function
             }
         }
         if innerTypes.isEmpty {
