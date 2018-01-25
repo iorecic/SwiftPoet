@@ -20,6 +20,19 @@ class FieldSpecTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
+    
+    func testConstantField() {
+        let field = FieldSpec.builder(for: "value", type: TypeName.IntegerType, construct: .field)
+            .add(initializer: CodeBlock.builder()
+                .add(literal: "0")
+                .build())
+            .add(parentType: .struct)
+            .build()
+        
+        let result = "let value: Int = 0"
+        
+        XCTAssertEqual(result, field.toString())
+    }
 
     func testComputedIntProperty() {
         /*
