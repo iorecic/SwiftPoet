@@ -32,7 +32,7 @@ open class StructSpecBuilder: TypeSpecBuilder, Builder {
     }
 
     open func build() -> Result {
-        if !(methods.contains { $0.name == "init" }) || includeInit {
+        if includeInit {
             addInitMethod()
         }
         return StructSpec(builder: self)
