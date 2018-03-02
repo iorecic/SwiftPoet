@@ -26,6 +26,7 @@ extension String
         case camelCaseName          // Variables, method declarations, arguments
         case unescapedCamelCaseName // Can be used for unescaped param names in methods
         case uppercasedName
+        case unchanged
     }
 }
 
@@ -48,6 +49,8 @@ extension StringProtocol {
         case .uppercasedName:
             let cleanedNameChars = PoetUtil.stripSpaceAndPunctuation(self).joined(separator: "")
             return ReservedWords.safeWord(cleanedNameChars.uppercased())
+        case .unchanged:
+            return String(self)
         }
     }
 }
